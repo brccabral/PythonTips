@@ -106,3 +106,17 @@ with open('help.txt', 'w') as f:
 
 
 
+# from mCoding https://www.youtube.com/watch?v=qUeud6DvOWI
+import socket
+# don't use try to close conenctions
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+try:
+    s.connect((host, port))
+    s.sendall(b'Helllo, world')
+finally:
+    s.close()
+# use with
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+    s.connect((host, port))
+    s.sendall(b'Helllo, world')
+
